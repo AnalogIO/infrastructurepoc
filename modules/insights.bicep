@@ -11,7 +11,7 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06
     features: {
       immediatePurgeDataOn30Days: true
     }
-    retentionInDays: 31
+    retentionInDays: 30
     sku: {
       name: 'PerGB2018' //Pay-As-You-Go
     }
@@ -24,7 +24,7 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
   kind: 'web'
   properties: {
     Application_Type: 'web'
-    RetentionInDays: 31
+    RetentionInDays: 30
     WorkspaceResourceId: logAnalyticsWorkspace.id
   }
 }
