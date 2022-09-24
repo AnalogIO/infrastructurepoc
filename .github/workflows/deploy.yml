@@ -1,0 +1,33 @@
+name: Deploy ARM deployment
+
+on:
+  push:
+    branches: [develop, production]
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  deploy:
+    name: Validate ARM deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: arm
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: analogio-dev
+          scope: resourcegroup
+          resourceGroupName: shared
+          template: azuredeploy.json
+          deploymentMode: Complete
+          parameters: "environment=dev"
+          failOnStdErr: false
