@@ -2,7 +2,7 @@ name: Deploy ARM deployment
 
 on:
   push:
-    branches: [ develop, production ]
+    branches: [develop, production]
 
 jobs:
   build:
@@ -29,5 +29,5 @@ jobs:
           resourceGroupName: shared
           template: azuredeploy.json
           deploymentMode: Complete
-          parameters: 'environment=dev'
+          parameters: "environment=dev"
           failOnStdErr: false

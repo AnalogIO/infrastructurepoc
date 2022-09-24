@@ -1,11 +1,11 @@
 param location string
 
-@allowed(['dev', 'prod'])
+@allowed([ 'dev', 'prod' ])
 param environment string
 param applicationPrefix string
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
-  name: 'log-${applicationPrefix}-${environment}' 
+  name: 'log-${applicationPrefix}-${environment}'
   location: location
   properties: {
     features: {

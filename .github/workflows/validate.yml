@@ -2,7 +2,7 @@ name: Validate ARM deployment
 
 on:
   pull_request:
-    branches: [ develop, production ]
+    branches: [develop, production]
 
   workflow_dispatch:
 
@@ -31,5 +31,5 @@ jobs:
           resourceGroupName: shared
           template: azuredeploy.json
           deploymentMode: Validate
-          parameters: 'environment=dev'
+          parameters: "environment=dev"
           failOnStdErr: false

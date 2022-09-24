@@ -1,6 +1,6 @@
 param location string = resourceGroup().location
 
-@allowed(['dev', 'prod'])
+@allowed([ 'dev', 'prod' ])
 param environment string
 param applicationPrefix string = 'ioweb'
 
