@@ -22,7 +22,7 @@ resource appservicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 }
 
 module insightsModule 'modules/insights.bicep' = {
-  name: 'deployment().name-insights'
+  name: '${deployment().name}-insights'
   params: {
     location: location
     environment: environment
