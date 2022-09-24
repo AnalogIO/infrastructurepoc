@@ -9,7 +9,6 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06
   location: location
   properties: {
     features: {
-      clusterResourceId: 'string'
       immediatePurgeDataOn30Days: true
     }
     retentionInDays: 31
