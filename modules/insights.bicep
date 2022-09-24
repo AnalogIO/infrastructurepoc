@@ -25,7 +25,6 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
   properties: {
     Application_Type: 'web'
     RetentionInDays: 31
-    ImmediatePurgeDataOn30Days: true
     WorkspaceResourceId: logAnalyticsWorkspace.id
   }
 }
