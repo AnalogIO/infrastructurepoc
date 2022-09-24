@@ -1,4 +1,4 @@
-name: Deploy ARM deployment
+name: Deploy ARM template
 
 on:
   push:
@@ -9,8 +9,9 @@ jobs:
     uses: ./.github/workflows/build.yml
 
   deploy:
-    name: Validate ARM deployment
+    name: Deploy ARM template
     runs-on: ubuntu-latest
+    needs: [build]
 
     steps:
       - name: Download Artifact
