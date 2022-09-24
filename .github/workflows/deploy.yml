@@ -29,6 +29,7 @@ jobs:
           scope: resourcegroup
           resourceGroupName: shared
           template: azuredeploy.json
-          deploymentMode: Complete
           parameters: "environment=dev"
+          deploymentMode: Complete
+          deploymentName: 'azuredeploy-${{github.run_number}}'
           failOnStdErr: false
