@@ -1,11 +1,13 @@
 param location string = resourceGroup().location
 
-@allowed([ 'dev', 'prod' ])
+@allowed([ 'dev', 'prd' ])
 param environment string
-param applicationPrefix string = 'ioweb'
+
+param organizationPrefix string = 'aio'
+param sharedResourcesAbbreviation string = 'shr'
 
 resource appservicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-  name: 'plan-${applicationPrefix}-${environment}'
+  name: 'asp-${organizationPrefix}-${sharedResourcesAbbreviation}-${environment}'
   location: location
   sku: {
     name: 'B1'
@@ -25,7 +27,8 @@ module insightsModule 'modules/insights.bicep' = {
   name: '${deployment().name}-insights'
   params: {
     location: location
+    organizationPrefix: organizationPrefix
+    applicationPrefix: sharedResourcesAbbreviation
     environment: environment
-    applicationPrefix: applicationPrefix
   }
 }
