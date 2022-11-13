@@ -32,3 +32,16 @@ module insightsModule 'modules/insights.bicep' = {
     environment: environment
   }
 }
+
+module shiftywebapp 'apps/shifty.bicep' = {
+  name: '${deployment().name}-app-shifty'
+  params: {
+    location: location
+    organizationPrefix: organizationPrefix
+    applicationPrefix: 'shifty'
+    environment: environment
+    appservicePlanName: appservicePlan.name
+    applicationInsightsName: insightsModule.outputs.applicationInsightsName
+    logAnalyticsWorkspaceName: insightsModule.outputs.logAnalyticsWorkspaceName
+  }
+}
