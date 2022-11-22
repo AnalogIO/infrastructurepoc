@@ -38,8 +38,5 @@ module keyVault 'modules/keyVault.bicep' = {
   params: {
     location: location
     keyVaultName: 'kv-${organizationPrefix}-${sharedResourcesAbbreviation}-${environment}'
-    objectId: 'ba138b8b-622a-42e4-abf8-7d11210e6436'
-    secretName: 'testSecret'
-    secretValue: 'verySecretValue'
   }
 }
