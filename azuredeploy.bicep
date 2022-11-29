@@ -32,3 +32,11 @@ module insightsModule 'modules/insights.bicep' = {
     environment: environment
   }
 }
+
+module keyVault 'modules/keyVault.bicep' = {
+  name: '${deployment().name}-keyVault'
+  params: {
+    location: location
+    keyVaultName: 'kv-${organizationPrefix}-${sharedResourcesAbbreviation}-${environment}'
+  }
+}
